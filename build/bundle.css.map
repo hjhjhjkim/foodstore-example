@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "Main.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import { foodstore } from \"../store.js\";\n  let mymoney = 0;\n\n  let foodlist = $foodstore;\n</script>\n\n<style lang=\"scss\">/* Variables */\n/* End: Variables */\n/* End: Mixins */\n.container .food-list {\n  background-color: yellow;\n  padding: 16px; }\n  .container .food-list .food {\n    padding: 8px;\n    border: 1px solid #707070; }\n    .container .food-list .food.cant {\n      opacity: 0.5; }\n\n.container p {\n  font-size: 28px;\n  font-weight: 900; }\n</style>\n\n<div class=\"container\">\n  <input type=\"number\" bind:value={mymoney} />\n\n  <div class=\"food-list\">\n    {#each foodlist as food}\n      {#if food.price > mymoney}\n        <div class=\"food cant\">\n          <p class=\"name\">{food.name}</p>\n          <p class=\"price\">{food.price}</p>\n        </div>\n      {:else}\n        <div class=\"food\">\n          <p class=\"name\">{food.name}</p>\n          <p class=\"price\">{food.price}</p>\n        </div>\n      {/if}\n    {/each}\n  </div>\n</div>\n"
+  ],
+  "names": [],
+  "mappings": "AAUA,yBAAU,CAAC,UAAU,eAAC,CAAC,AACrB,gBAAgB,CAAE,MAAM,CACxB,OAAO,CAAE,IAAI,AAAE,CAAC,AAChB,yBAAU,CAAC,UAAU,CAAC,KAAK,eAAC,CAAC,AAC3B,OAAO,CAAE,GAAG,CACZ,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,OAAO,AAAE,CAAC,AAC5B,yBAAU,CAAC,UAAU,CAAC,KAAK,KAAK,eAAC,CAAC,AAChC,OAAO,CAAE,GAAG,AAAE,CAAC,AAErB,yBAAU,CAAC,CAAC,eAAC,CAAC,AACZ,SAAS,CAAE,IAAI,CACf,WAAW,CAAE,GAAG,AAAE,CAAC"
+}
